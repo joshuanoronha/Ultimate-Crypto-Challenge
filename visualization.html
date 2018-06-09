@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style> /* set the CSS */
+
+rect.bar { fill: steelblue; }
+
+</style>    
+<body>
+<p>
+        13 Reasons Why (stylized onscreen as TH1RTEEN R3ASONS WHY) is an American mystery teen drama web television series based on the 2007 novel Thirteen Reasons Why by Jay Asher and adapted by Brian Yorkey for Netflix. The series revolves around a high school student, Clay Jensen, and his friend Hannah Baker, a girl who takes her own life after suffering a series of demoralizing circumstances brought on by select individuals at her school. A box of cassette tapes recorded by Hannah before her suicide details thirteen reasons why she ended her life.
+    </p>
+    <p>
+
+        The series is produced by July Moon Productions, Kicked to the Curb Productions, Anonymous Content and Paramount Television, with Yorkey and Diana Son serving as showrunners. Originally conceived as a film set to be released by Universal Pictures with Selena Gomez in the role of Hannah Baker, the adaptation was picked up as a television series by Netflix in late 2015. Gomez serves as an executive producer. The first season, and the special 13 Reasons Why: Beyond the Reasons, were released worldwide on Netflix on March 31, 2017.
+    </p>
+    <p>
+        
+        The first season received positive reviews from critics and audiences, who have praised its subject matter and acting, particularly the two leads, Dylan Minnette and Katherine Langford, who received a Golden Globe Award nomination for Best Actress in a Drama Series. It has attracted controversy from some, including mental health professionals, over the series' graphic depiction of issues such as suicide and rape, along with other mature content. In May 2017, it was announced that the series had been renewed for a second season, which was released on May 18, 2018, along with a second Beyond the Reasons special. The second season received mixed reviews from both critics and audiences. On June 6, 2018, the series was renewed for a third season, which is set to be released in 2019.
+</p>
+<!-- load the d3.js library -->    	
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+d3.select("body")
+  .selectAll("p")
+  .data([4, 8, 15, 16, 23, 42])
+  .enter().append("p")
+    .text(function(d) { return "I’m number " + d + "!"; });
+</script>
+</body>
