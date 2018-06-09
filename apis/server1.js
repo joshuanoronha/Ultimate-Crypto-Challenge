@@ -3,11 +3,11 @@ const key          = 'ZV5aCnZjIoKf3DYQPGRM7+2PKHvXkGZ/YU5eR4NQXkKe9hTQwGo4bonK';
 const secret       = 'hPlbCjwRyimQxIQAf3G0+khv7PTdvdjY7+1U1hpVVw5tFHoUxxMwR1kQkyD/gnHtMSJEW6ASMTX7mJLxtpTD4g=='; // API Private Key
 const KrakenClient = require('kraken-node-api');
 const kraken       = new KrakenClient(key, secret);
- 
+
 (async () => {
     // Display user's balance
     console.log(await kraken.api('Balance'));
- 
+
     // Get Ticker Info
     console.log(await kraken.api('Ticker', { pair : 'XXBTZUSD' }));
 })();
@@ -39,8 +39,8 @@ kraken.api('Ticker', {"pair": 'XBTCXLTC'}, function(error, data) {
 
 */
 
-const kraken = require('kraken-api-wrapper')('ZV5aCnZjIoKf3DYQPGRM7+2PKHvXkGZ/YU5eR4NQXkKe9hTQwGo4bonK', 'hPlbCjwRyimQxIQAf3G0+khv7PTdvdjY7+1U1hpVVw5tFHoUxxMwR1kQkyD/gnHtMSJEW6ASMTX7mJLxtpTD4g==') // create wrapper for API 
+const kraken = require('kraken-api-wrapper')('ZV5aCnZjIoKf3DYQPGRM7+2PKHvXkGZ/YU5eR4NQXkKe9hTQwGo4bonK', 'hPlbCjwRyimQxIQAf3G0+khv7PTdvdjY7+1U1hpVVw5tFHoUxxMwR1kQkyD/gnHtMSJEW6ASMTX7mJLxtpTD4g==') // create wrapper for API
 
-kraken.Time()
+kraken.Assets()
   .then(result => console.log(result))
   .catch(err => console.error(err));

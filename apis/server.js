@@ -6,6 +6,6 @@ binance.options({
   test: true // If you want to use sandbox mode where orders are simulated
 });
 
-binance.openOrders(false, (error, openOrders) => {
+binance.prices(false, (error, openOrders) => {
   console.log("openOrders()", openOrders);
 });
