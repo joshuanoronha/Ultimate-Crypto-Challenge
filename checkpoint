@@ -1,2 +1,2 @@
-model_checkpoint_path: "/home/joshua/Joshua/Projects/Crypto Challenge/2018/Ultimate-Crypto-Challenge/model.tflearn"
-all_model_checkpoint_paths: "/home/joshua/Joshua/Projects/Crypto Challenge/2018/Ultimate-Crypto-Challenge/model.tflearn"
+model_checkpoint_path: "/home/ruth/Desktop/cryptoChallenge/Ultimate-Crypto-Challenge/model.tflearn"
+all_model_checkpoint_paths: "/home/ruth/Desktop/cryptoChallenge/Ultimate-Crypto-Challenge/model.tflearn"
