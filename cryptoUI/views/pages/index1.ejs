@@ -8,9 +8,11 @@
 <title>
   cryptocurrency
 </title>
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'
+/>
 <!--     Fonts and icons     -->
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
 <link href="./assets/css/material-kit.css?v=2.0.3" rel="stylesheet" />
@@ -21,258 +23,289 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-       <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-       <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
-       <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-              <script>
-              // Initialize Firebase
-              var config = {
-                apiKey: "AIzaSyBf5ERovaG2P1_HblEVy9h5V2N850PWB74",
-                authDomain: "cryptocast-2605a.firebaseapp.com",
-                databaseURL: "https://cryptocast-2605a.firebaseio.com",
-                projectId: "cryptocast-2605a",
-                storageBucket: "cryptocast-2605a.appspot.com",
-                messagingSenderId: "204336388119"
-              };
-              firebase.initializeApp(config);
-       </script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBf5ERovaG2P1_HblEVy9h5V2N850PWB74",
+    authDomain: "cryptocast-2605a.firebaseapp.com",
+    databaseURL: "https://cryptocast-2605a.firebaseio.com",
+    projectId: "cryptocast-2605a",
+    storageBucket: "cryptocast-2605a.appspot.com",
+    messagingSenderId: "204336388119"
+  };
+  firebase.initializeApp(config);
+</script>
 
 
-         <!-- Import and configure the Firebase SDK -->
-         <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
-         <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-         <script src="/__/firebase/5.0.0/firebase-app.js"></script>
-         <script src="/__/firebase/5.0.0/firebase-auth.js"></script>
-         <script src="/__/firebase/init.js"></script>
+<!-- Import and configure the Firebase SDK -->
+<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+<!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<script src="/__/firebase/5.0.0/firebase-app.js"></script>
+<script src="/__/firebase/5.0.0/firebase-auth.js"></script>
+<script src="/__/firebase/init.js"></script>
 
-         <script type="text/javascript">
+<script type="text/javascript">
 
-           /**
-            * Handles the sign in button press.
-            */
-           function toggleSignIn() {
-             if (firebase.auth().currentUser) {
-               // [START signout]
-               firebase.auth().signOut();
-               // [END signout]
-             } else {
-               var email = document.getElementById('email').value;
-               var password = document.getElementById('password').value;
-               if (email.length < 4) {
-                 alert('Please enter an email address.');
-                 return;
-               }
-               if (password.length < 4) {
-                 alert('Please enter a password.');
-                 return;
-               }
-               // Sign in with email and pass.
-               // [START authwithemail]
-               firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-                 // Handle Errors here.
-                 var errorCode = error.code;
-                 var errorMessage = error.message;
-                 // [START_EXCLUDE]
-                 if (errorCode === 'auth/wrong-password') {
-                   alert('Wrong password.');
-                 } else {
-                   alert(errorMessage);
-                 }
-                 console.log(error);
-                 document.getElementById('quickstart-sign-in').disabled = false;
-                 // [END_EXCLUDE]
-               });
-               // [END authwithemail]
-             }
-             document.getElementById('quickstart-sign-in').disabled = true;
-           }
+  /**
+  * Handles the sign in button press.
+  */
+  function toggleSignIn() {
+    if (firebase.auth().currentUser) {
+      // [START signout]
+      firebase.auth().signOut();
+      // [END signout]
+    } else {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START authwithemail]
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        document.getElementById('quickstart-sign-in').disabled = false;
+        // [END_EXCLUDE]
+      });
+      // [END authwithemail]
+    }
+    document.getElementById('quickstart-sign-in').disabled = true;
+  }
 
-           /**
-            * Handles the sign up button press.
-            */
-           function handleSignUp() {
-             var email = document.getElementById('email').value;
-             var password = document.getElementById('password').value;
-             if (email.length < 4) {
-               alert('Please enter an email address.');
-               return;
-             }
-             if (password.length < 4) {
-               alert('Please enter a password.');
-               return;
-             }
-             // Sign in with email and pass.
-             // [START createwithemail]
-             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-               // Handle Errors here.
-               var errorCode = error.code;
-               var errorMessage = error.message;
-               // [START_EXCLUDE]
-               if (errorCode == 'auth/weak-password') {
-                 alert('The password is too weak.');
-               } else {
-                 alert(errorMessage);
-               }
-               console.log(error);
-               // [END_EXCLUDE]
-             });
-             // [END createwithemail]
-           }
+  /**
+  * Handles the sign up button press.
+  */
+  function handleSignUp() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    if (email.length < 4) {
+      alert('Please enter an email address.');
+      return;
+    }
+    if (password.length < 4) {
+      alert('Please enter a password.');
+      return;
+    }
+    // Sign in with email and pass.
+    // [START createwithemail]
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+    // [END createwithemail]
+  }
 
-           /**
-            * Sends an email verification to the user.
-            */
-           function sendEmailVerification() {
-             // [START sendemailverification]
-             firebase.auth().currentUser.sendEmailVerification().then(function() {
-               // Email Verification sent!
-               // [START_EXCLUDE]
-               alert('Email Verification Sent!');
-               // [END_EXCLUDE]
-             });
-             // [END sendemailverification]
-           }
+  /**
+  * Sends an email verification to the user.
+  */
+  function sendEmailVerification() {
+    // [START sendemailverification]
+    firebase.auth().currentUser.sendEmailVerification().then(function () {
+      // Email Verification sent!
+      // [START_EXCLUDE]
+      alert('Email Verification Sent!');
+      // [END_EXCLUDE]
+    });
+    // [END sendemailverification]
+  }
 
-           function sendPasswordReset() {
-             var email = document.getElementById('email').value;
-             // [START sendpasswordemail]
-             firebase.auth().sendPasswordResetEmail(email).then(function() {
-               // Password Reset Email Sent!
-               // [START_EXCLUDE]
-               alert('Password Reset Email Sent!');
-               // [END_EXCLUDE]
-             }).catch(function(error) {
-               // Handle Errors here.
-               var errorCode = error.code;
-               var errorMessage = error.message;
-               // [START_EXCLUDE]
-               if (errorCode == 'auth/invalid-email') {
-                 alert(errorMessage);
-               } else if (errorCode == 'auth/user-not-found') {
-                 alert(errorMessage);
-               }
-               console.log(error);
-               // [END_EXCLUDE]
-             });
-             // [END sendpasswordemail];
-           }
+  function sendPasswordReset() {
+    var email = document.getElementById('email').value;
+    // [START sendpasswordemail]
+    firebase.auth().sendPasswordResetEmail(email).then(function () {
+      // Password Reset Email Sent!
+      // [START_EXCLUDE]
+      alert('Password Reset Email Sent!');
+      // [END_EXCLUDE]
+    }).catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == 'auth/invalid-email') {
+        alert(errorMessage);
+      } else if (errorCode == 'auth/user-not-found') {
+        alert(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+    // [END sendpasswordemail];
+  }
 
-           /**
-            * initApp handles setting up UI event listeners and registering Firebase auth listeners:
-            *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
-            *    out, and that is where we update the UI.
-            */
-           function initApp() {
-             // Listening for auth state changes.
-             // [START authstatelistener]
-             firebase.auth().onAuthStateChanged(function(user) {
-               // [START_EXCLUDE silent]
-               document.getElementById('quickstart-verify-email').disabled = true;
-               // [END_EXCLUDE]
-               if (user) {
-                 // User is signed in.
-                 var displayName = user.displayName;
-                 var email = user.email;
-                 var emailVerified = user.emailVerified;
-                 var photoURL = user.photoURL;
-                 var isAnonymous = user.isAnonymous;
-                 var uid = user.uid;
-                 var providerData = user.providerData;
-                 // [START_EXCLUDE]
-                 document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
-                 document.getElementById('quickstart-sign-in').textContent = 'Sign out';
-                 document.getElementById('quickstart-account-details').textContent = JSON.stringify(user.uid, null, '  ');
-                 if (!emailVerified) {
-                   document.getElementById('quickstart-verify-email').disabled = false;
-                 }
-                 // [END_EXCLUDE]
-               } else {
-                 // User is signed out.
-                 // [START_EXCLUDE]
-                 document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
-                 document.getElementById('quickstart-sign-in').textContent = 'Sign in';
-                 document.getElementById('quickstart-account-details').textContent = 'login/signup';
-                 // [END_EXCLUDE]
-               }
-               // [START_EXCLUDE silent]
-               document.getElementById('quickstart-sign-in').disabled = false;
-               // [END_EXCLUDE]
-             });
-             // [END authstatelistener]
+  /**
+  * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+  *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+  *    out, and that is where we update the UI.
+  */
+  function initApp() {
+    // Listening for auth state changes.
+    // [START authstatelistener]
+    firebase.auth().onAuthStateChanged(function (user) {
+      // [START_EXCLUDE silent]
+      document.getElementById('quickstart-verify-email').disabled = true;
+      // [END_EXCLUDE]
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        // [START_EXCLUDE]
+        document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+        document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+        document.getElementById('quickstart-account-details').textContent = JSON.stringify(user.uid, null, '  ');
+        if (!emailVerified) {
+          document.getElementById('quickstart-verify-email').disabled = false;
+        }
+        // [END_EXCLUDE]
+      } else {
+        // User is signed out.
+        // [START_EXCLUDE]
+        document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+        document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+        document.getElementById('quickstart-account-details').textContent = 'login/signup';
+        // [END_EXCLUDE]
+      }
+      // [START_EXCLUDE silent]
+      document.getElementById('quickstart-sign-in').disabled = false;
+      // [END_EXCLUDE]
+    });
+    // [END authstatelistener]
 
-             document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-             document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
-             document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-             document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
-           }
+    document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+    document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
+    document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
+    document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+  }
 
-           window.onload = function() {
-             initApp();
-           };
-         </script>
-       </head>
+  window.onload = function () {
+    initApp();
+  };
+</script>
+</head>
 
 
 
 <body class="index-page sidebar-collapse">
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-  <div class="container">
-    <div class="navbar-translate">
-      <a class="navbar-brand" href="#home">
-      Crypocast </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="dropdown nav-item">
-          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-            <i class="material-icons">apps</i> Elements
-          </a>
-          <div class="dropdown-menu dropdown-with-icons">
-            <a href="#sentiment" class="dropdown-item">
-            <i class="material-icons">heart</i>   Sentiment Analysis
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="#home">
+          Crypocast </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+      <div class=" navbar-collapse">
+        <ul class="navbar-nav" style="margin-right: 10px">
+          <li class=" nav-item">
+
+            <div>
+              <a href="#future-trends">
+                Future Trends </a>
+
+            </div>
+
+        </ul>
+        <ul class="navbar-nav" style="margin-right: 10px">
+          <li class=" nav-item">
+
+            <div>
+              <a href="#experts-opinion">
+                Experts Opinion </a>
+            </div>
+          </li>
+
+        </ul>
+      
+        <ul class="navbar-nav sponsors mr-auto" >
+            <li class="nav-item">
+  
+              <div>
+                <a href="#tech-used">
+                  Technology Used </a>
+              </div>
+            </li>
+          </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">apps</i> Elements
             </a>
-            <a href="#investment" class="dropdown-item">
-              <i class="material-icons">content_paste</i> investment Guide
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="#sentiment" class="dropdown-item">
+                <i class="material-icons">heart</i> Sentiment Analysis
+              </a>
+              <a href="#investment" class="dropdown-item">
+                <i class="material-icons">content_paste</i> investment Guide
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a data-toggle="modal" data-target="#myModal">
+              <div id="quickstart-account-details"></div>
+
             </a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="modal" data-target="#myModal"  >
-           <div id="quickstart-account-details">null</div>
+          </li>
+          <li class="nav-item">
+            <p style="color:white;">
 
-          </a>
-        </li>
-        <li class="nav-item">
-          <p style="color:white;">
+              <div class="togglebutton">
+                Chill
+                <label>
+                  <input type="checkbox" checked="">
 
-          <div class="togglebutton">
-            chill
-            <label>
-              <input type="checkbox" checked="">
+                  <span class="toggle"></span>
 
-              <span class="toggle"></span>
+                </label>
+                Pro
+              </div>
+            </p>
 
-            </label>
-            pro
-          </div>
-        </p>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-          </a>
-        </li>
-      </ul>
-    </div>
+  </nav>
 
-</nav>
-
-<br>
+  <br>
   <div id="particles-js" class="page-header header-filter clear-filter " style="background-color:black; " data-parallax="true">
-    <div class="container"  style="position:absolute ; left:20%;" >
+    <div class="container" style="position:absolute ; left:20%;">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
@@ -305,55 +338,57 @@
                 <p>Enter an email and password below and either sign in to an existing account or sign up</p>
 
               </div>
-              </div>
+            </div>
 
-                  <div class ="col">
+            <div class="col">
 
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">email</i>
-                    </span>
-                  </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">email</i>
+                  </span>
+                </div>
                 <input type="text" class="form-control" placeholder="Email..." id="email" name="email">
-                </div>
               </div>
+            </div>
 
-                  <div class ="col">
+            <div class="col">
 
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock_outline</i>
-                    </span>
-                  </div>
-                  <input type="password" class="form-control" placeholder="Password..." id="password" name="password">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">lock_outline</i>
+                  </span>
                 </div>
+                <input type="password" class="form-control" placeholder="Password..." id="password" name="password">
               </div>
+            </div>
 
 
-          <div>
-            <a class="btn btn-link btn-primary btn-lg" id="quickstart-sign-in" name="signin">Sign In</a>
+            <div>
+              <a class="btn btn-link btn-primary btn-lg" id="quickstart-sign-in" name="signin">Sign In</a>
 
-          <a class="btn btn-link btn-primary btn-lg" id="quickstart-sign-up" name="signup" ">Sign Up</a>
-
-                <button style ="visibility: hidden;"disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-                &nbsp;&nbsp;&nbsp;
-                <button  style ="visibility: hidden; id="quickstart-password-reset" name="verify-email"> Send Password Reset Email</button>
-
+              <a class="btn btn-link btn-primary btn-lg" id="quickstart-sign-up" name="signup" ">Sign Up</a>
+                            
+                            <button style ="visibility: hidden; "disabled id="quickstart-verify-email " name="verify-email ">Send Email Verification</button>
+                            &nbsp;&nbsp;&nbsp;
+                            <button  style ="visibility: hidden; id="quickstart-password-reset" name="verify-email"> Send Password Reset Email</button>
+                #tech-used
                 <div class="quickstart-user-details-container" style="visibility:hidden">
-                  Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-                  <div>Firebase auth <code>currentUser</code> object value:</div>
+                  Firebase sign-in status:
+                  <span id="quickstart-sign-in-status">Unknown</span>
+                  <div>Firebase auth
+                    <code>currentUser</code> object value:</div>
                   <pre><code id="quickstart-account-details">null</code></pre>
                 </div>
 
-              </div>
+            </div>
 
 
           </div>
           <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-    </div>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
 
         </div>
 
@@ -363,22 +398,153 @@
   </div>
 
 
-
-
   <div class="main main-raised" id="home">
+
+    <br>
+    <br>
+    <div id="future-trends" class="d-flex justify-content-center">
+      <h2>
+        Future Trends
+      </h2>
+
+    </div>
+
+
     <div class="section section-basic">
       <div class="container">
+        <h5>
+          Search Trends
+        </h5>
         <div class="title">
           <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1435_RC12/embed_loader.js"></script>
-        <script type="text/javascript">
-          trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"Bitcoin","geo":"US","time":"today 12-m"},{"keyword":"ethereum","geo":"US","time":"today 12-m"},{"keyword":"ripple","geo":"US","time":"today 12-m"},{"keyword":"tron","geo":"US","time":"today 12-m"},{"keyword":"cardano","geo":"US","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"geo=US&q=Bitcoin,ethereum,ripple,tron,cardano&date=today 12-m,today 12-m,today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});
+          <script type="text/javascript">
+            trends.embed.renderExploreWidget("TIMESERIES", { "comparisonItem": [{ "keyword": "Bitcoin", "geo": "US", "time": "today 1-m" }, { "keyword": "ethereum", "geo": "US", "time": "today 1-m" }, { "keyword": "ripple", "geo": "US", "time": "today 1-m" }, { "keyword": "tron", "geo": "US", "time": "today 1-m" }, { "keyword": "cardano", "geo": "US", "time": "today 1-m" }], "category": 0, "property": "" }, { "exploreQuery": "geo=US&q=Bitcoin,ethereum,ripple,tron,cardano&date=today 1-m,today 1-m,today 1-m,today 1-m,today 1-m", "guestPath": "https://trends.google.com:443/trends/embed/" });
+          </script>
 
 
-        </script>
+          <div>
+            <h3>
+              <small>Search Trends in Google</small>
+            </h3>
+            <!-- Tabs with icons on Card -->
+            <div class="card card-nav-tabs">
+              <div class="card-header card-header-primary">
+                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#profile" data-toggle="tab">
+                          BITCOIN
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active show" href="#messages" data-toggle="tab">
+                          ETHEREUM
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#settings" data-toggle="tab">
+                          DASH
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body ">
+                <div class="tab-content text-center">
+                  <div class="tab-pane" id="profile">
+                    <p> BTC</p>
+                  </div>
+                  <div class="tab-pane active show" id="messages">
+                    <p> ETH</p>
+                  </div>
+                  <div class="tab-pane" id="settings">
+                    <p>DSH.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Tabs with icons on Card -->
+          </div>
+
+          <br>
+          <br>
+          <div id="experts-opinion" class="d-flex justify-content-center">
+            <h2>
+              Expert's Opinion
+            </h2>
+
+          </div>
 
 
+          <div>
+              <h3>
+                <small>Search Trends in Google</small>
+              </h3>
+              <!-- Tabs with icons on Card -->
+              <div class="card card-nav-tabs">
+                <div class="card-header card-header-primary">
+                  <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#profile" data-toggle="tab">
+                            LOW RISK-GAIN
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active show" href="#messages" data-toggle="tab">
+                            MEDIUM RISK-GAIN
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#settings" data-toggle="tab">
+                            HIGH RISK-GAIN
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body ">
+                  <div class="tab-content text-center">
+                    <div class="tab-pane" id="profile">
+                      <p> BTC</p>
+                    </div>
+                    <div class="tab-pane active show" id="messages">
+                      <p> ETH</p>
+                    </div>
+                    <div class="tab-pane" id="settings">
+                      <p>DSH.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Tabs with icons on Card -->
+            </div>
+  
 
-        <img src="/images/sentiment.gif" style="height:100%; width:100%"/>
+          <div id="tech-used" class="d-flex justify-content-center">
+            <h2>
+              Technology Used
+            </h2>
+
+
+          </div>
+
+          <h4>
+            Neural Networks
+          </h4>
+          <img src="/images/sentiment.gif" style="height:100%; width:100%" />
 
           <h2>Basic Elements</h2>
         </div>
@@ -605,7 +771,8 @@
                 <h3>Progress Bars</h3>
               </div>
               <div class="progress progress-line-primary">
-                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 30%;">
                   <span class="sr-only">60% Complete</span>
                 </div>
               </div>
@@ -632,8 +799,8 @@
               </div>
               <ul class="pagination pagination-primary">
                 <!--
-                            color-classes: "pagination-primary", "pagination-info", "pagination-success", "pagination-warning", "pagination-danger"
-                        -->
+                                color-classes: "pagination-primary", "pagination-info", "pagination-success", "pagination-warning", "pagination-danger"
+                              -->
                 <li class="page-item">
                   <a href="javascript:void(0);" class="page-link">1</a>
                 </li>
@@ -777,10 +944,14 @@
                 <div class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                      <a href="#pablo" class="nav-link"><i class="material-icons">email</i></a>
+                      <a href="#pablo" class="nav-link">
+                        <i class="material-icons">email</i>
+                      </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#pablo" class="nav-link"><i class="material-icons">face</i></a>
+                      <a href="#pablo" class="nav-link">
+                        <i class="material-icons">face</i>
+                      </a>
                     </li>
                     <li class="dropdown nav-item">
                       <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -1074,13 +1245,25 @@
                 <div class="card-body ">
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="profile">
-                      <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                      <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers.
+                        I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push
+                        possibilities, to show people, this is the level that things could be at. I think that&#x2019;s a
+                        responsibility that I have, to push possibilities, to show people, this is the level that things
+                        could be at. </p>
                     </div>
                     <div class="tab-pane" id="messages">
-                      <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                      <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is
+                        the level that things could be at. I will be the leader of a company that ends up being worth billions
+                        of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s
+                        a responsibility that I have, to push possibilities, to show people, this is the level that things
+                        could be at.</p>
                     </div>
                     <div class="tab-pane" id="settings">
-                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is
+                        the level that things could be at. So when you get something that has the name Kanye West on it,
+                        it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company
+                        that ends up being worth billions of dollars, because I got the answers. I understand culture. I
+                        am the nucleus.</p>
                     </div>
                   </div>
                 </div>
@@ -1114,13 +1297,25 @@
                 <div class="card-body ">
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="home">
-                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is
+                        the level that things could be at. So when you get something that has the name Kanye West on it,
+                        it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company
+                        that ends up being worth billions of dollars, because I got the answers. I understand culture. I
+                        am the nucleus.</p>
                     </div>
                     <div class="tab-pane" id="updates">
-                      <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                      <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers.
+                        I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push
+                        possibilities, to show people, this is the level that things could be at. I think that&#x2019;s a
+                        responsibility that I have, to push possibilities, to show people, this is the level that things
+                        could be at. </p>
                     </div>
                     <div class="tab-pane" id="history">
-                      <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                      <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is
+                        the level that things could be at. I will be the leader of a company that ends up being worth billions
+                        of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s
+                        a responsibility that I have, to push possibilities, to show people, this is the level that things
+                        could be at.</p>
                     </div>
                   </div>
                 </div>
@@ -1148,8 +1343,8 @@
             <div class="col-lg-6 col-md-8">
               <ul class="nav nav-pills nav-pills-icons" role="tablist">
                 <!--
-                                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
-                            -->
+                                            color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                                          -->
                 <li class="nav-item">
                   <a class="nav-link" href="#dashboard-1" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> Dashboard
@@ -1168,17 +1363,20 @@
               </ul>
               <div class="tab-content tab-space">
                 <div class="tab-pane active" id="dashboard-1">
-                  Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                  Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed
+                  base benefits.
                   <br>
                   <br> Dramatically visualize customer directed convergence without revolutionary ROI.
                 </div>
                 <div class="tab-pane" id="schedule-1">
-                  Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                  Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time
+                  schemas.
                   <br>
                   <br>Dramatically maintain clicks-and-mortar solutions without functional solutions.
                 </div>
                 <div class="tab-pane" id="tasks-1">
-                  Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
+                  Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer
+                  service with robust ideas.
                   <br>
                   <br>Dynamically innovate resource-leveling customer service for state of the art customer service.
                 </div>
@@ -1189,8 +1387,8 @@
                 <div class="col-md-3">
                   <ul class="nav nav-pills nav-pills-icons flex-column" role="tablist">
                     <!--
-                                        color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
-                                    -->
+                                                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                                              -->
                     <li class="nav-item">
                       <a class="nav-link active" href="#dashboard-2" role="tab" data-toggle="tab">
                         <i class="material-icons">dashboard</i> Dashboard
@@ -1206,12 +1404,14 @@
                 <div class="col-md-8">
                   <div class="tab-content">
                     <div class="tab-pane active" id="dashboard-2">
-                      Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                      Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed
+                      base benefits.
                       <br>
                       <br> Dramatically visualize customer directed convergence without revolutionary ROI.
                     </div>
                     <div class="tab-pane" id="schedule-2">
-                      Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                      Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time
+                      schemas.
                       <br>
                       <br>Dramatically maintain clicks-and-mortar solutions without functional solutions.
                     </div>
@@ -1237,7 +1437,9 @@
             <i class="material-icons">info_outline</i>
           </div>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            <span aria-hidden="true">
+              <i class="material-icons">clear</i>
+            </span>
           </button>
           <b>Info alert:</b> You&apos;ve got some friends nearby, stop looking at your phone and find them...
         </div>
@@ -1248,7 +1450,9 @@
             <i class="material-icons">check</i>
           </div>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            <span aria-hidden="true">
+              <i class="material-icons">clear</i>
+            </span>
           </button>
           <b>Success Alert:</b> Yuhuuu! You&apos;ve got your $11.99 album from The Weeknd
         </div>
@@ -1259,9 +1463,12 @@
             <i class="material-icons">warning</i>
           </div>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            <span aria-hidden="true">
+              <i class="material-icons">clear</i>
+            </span>
           </button>
-          <b>Warning Alert:</b> Hey, it looks like you still have the &quot;copyright &#xA9; 2015&quot; in your footer. Please update it!
+          <b>Warning Alert:</b> Hey, it looks like you still have the &quot;copyright &#xA9; 2015&quot; in your footer. Please
+          update it!
         </div>
       </div>
       <div class="alert alert-danger">
@@ -1270,7 +1477,9 @@
             <i class="material-icons">error_outline</i>
           </div>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            <span aria-hidden="true">
+              <i class="material-icons">clear</i>
+            </span>
           </button>
           <b>Error Alert:</b> Damn man! You screwed up the server this time. You should find a good excuse for your Boss...
         </div>
@@ -1329,13 +1538,17 @@
             <div class="tim-typo">
               <p>
                 <span class="tim-note">Paragraph</span>
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture.
+                I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people,
+                this is the level that things could be at.</p>
             </div>
             <div class="tim-typo">
               <span class="tim-note">Quote</span>
               <div class="blockquote undefined">
                 <p>
-                  I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
+                  I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture.
+                  I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people,
+                  this is the level that things could be at.
                 </p>
                 <small>
                   Kanye West, Musician
@@ -1453,10 +1666,14 @@
             <div class="title">
               <h3>Popovers</h3>
             </div>
-            <button type="button" class="btn" data-toggle="popover" data-placement="left" title="Popover on left" data-content="Here will be some very useful information about his popover. Here will be some very useful information about his popover." data-container="body">On left</button>
-            <button type="button" class="btn" data-toggle="popover" data-placement="top" title="Popover on top" data-content="Here will be some very useful information about his popover." data-container="body">On top</button>
-            <button type="button" class="btn" data-toggle="popover" data-placement="bottom" title="Popover on bottom" data-content="Here will be some very useful information about his popover." data-container="body">On bottom</button>
-            <button type="button" class="btn" data-toggle="popover" data-placement="right" title="Popover on right" data-content="Here will be some very useful information about his popover." data-container="body">On right</button>
+            <button type="button" class="btn" data-toggle="popover" data-placement="left" title="Popover on left" data-content="Here will be some very useful information about his popover. Here will be some very useful information about his popover."
+              data-container="body">On left</button>
+            <button type="button" class="btn" data-toggle="popover" data-placement="top" title="Popover on top" data-content="Here will be some very useful information about his popover."
+              data-container="body">On top</button>
+            <button type="button" class="btn" data-toggle="popover" data-placement="bottom" title="Popover on bottom" data-content="Here will be some very useful information about his popover."
+              data-container="body">On bottom</button>
+            <button type="button" class="btn" data-toggle="popover" data-placement="right" title="Popover on right" data-content="Here will be some very useful information about his popover."
+              data-container="body">On right</button>
             <br>
             <br>
             <div class="title">
@@ -1534,7 +1751,9 @@
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
             <h2>Completed with examples</h2>
-            <h4>The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go. More importantly, looking at them will give you a picture of what you can built with this powerful kit.</h4>
+            <h4>The kit comes with three pre-built pages to help you get started faster. You can change the text and images and
+              you're good to go. More importantly, looking at them will give you a picture of what you can built with this
+              powerful kit.</h4>
           </div>
         </div>
       </div>
@@ -1565,14 +1784,17 @@
         <div class="row text-center">
           <div class="col-md-8 ml-auto mr-auto">
             <h2>Do you love this UI Kit?</h2>
-            <h4>Cause if you do, it can be yours for FREE. Hit the buttons below to navigate to our website where you can find the kit. Our friends from
-              <a href="https://themeisle.com/?utm_campaign=mkfree-hestia&amp;utm_source=creativetim&amp;utm_medium=website" target="_blank">ThemeIsle</a> created a Wordpress Theme which can be also downloaded for free. Start a new project or give an old Bootstrap project a new look!</h4>
+            <h4>Cause if you do, it can be yours for FREE. Hit the buttons below to navigate to our website where you can find
+              the kit. Our friends from
+              <a href="https://themeisle.com/?utm_campaign=mkfree-hestia&amp;utm_source=creativetim&amp;utm_medium=website" target="_blank">ThemeIsle</a> created a Wordpress Theme which can be also downloaded for free. Start a new project or give
+              an old Bootstrap project a new look!</h4>
           </div>
           <div class="col-sm-8 col-md-6 ml-auto mr-auto">
             <a href="http://www.creative-tim.com/product/material-kit" class="btn btn-primary btn-lg">
               <i class="fa fa-html5"></i> Free HTML Download
             </a>
-            <a href="https://themeisle.com/themes/hestia/?utm_campaign=mkfree-hestia&amp;utm_source=creativetim&amp;utm_medium=website" target="_blank" class="btn btn-primary btn-lg">
+            <a href="https://themeisle.com/themes/hestia/?utm_campaign=mkfree-hestia&amp;utm_source=creativetim&amp;utm_medium=website"
+              target="_blank" class="btn btn-primary btn-lg">
               <i class="fa fa-wordpress"></i> Wordpress Theme
             </a>
           </div>
@@ -1583,10 +1805,12 @@
           <div class="col-md-8 ml-auto mr-auto">
             <h2>Want more?</h2>
             <h4>We've just launched
-              <a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-mk-demos" target="_blank">Material Kit PRO</a>. It has a huge number of components, sections and example pages. Start Your Development With A Badass Bootstrap UI Kit inspired by Material Design.</h4>
+              <a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-mk-demos" target="_blank">Material Kit PRO</a>. It has a huge number of components, sections and example pages. Start Your Development
+              With A Badass Bootstrap UI Kit inspired by Material Design.</h4>
           </div>
           <div class="col-sm-8 col-md-5 ml-auto mr-auto">
-            <a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-mk-demos" class="btn btn-rose btn-upgrade btn-lg" target="_blank">
+            <a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-mk-demos" class="btn btn-rose btn-upgrade btn-lg"
+              target="_blank">
               <i class="material-icons">unarchive</i> Upgrade to PRO
             </a>
           </div>
@@ -1622,7 +1846,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river
+            named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country,
+            in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about
+            the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of
+            Lorem Ipsum decided to leave for the far World of Grammar.
           </p>
         </div>
         <div class="modal-footer">
@@ -1647,7 +1876,7 @@
   <script src="particles.js"></script>
   <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       //init DateTimePickers
       materialKit.initFormExtendedDatetimepickers();
 
@@ -1655,21 +1884,21 @@
       materialKit.initSliders();
       /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
       console.log(particlesJS);
-particlesJS.load('particles-js', './assets/particlesjs-config.json', function() {
-  console.log('callback - particles.js config loaded');
-   document.querySelector("canvas").style['z-index']="12";
-});
+      particlesJS.load('particles-js', './assets/particlesjs-config.json', function () {
+        console.log('callback - particles.js config loaded');
+        document.querySelector("canvas").style['z-index'] = "12";
+      });
     });
 
 
     function hide() {
-    var x = document.getElementById("loginn");
-    if (x.style.display === "none") {
+      var x = document.getElementById("loginn");
+      if (x.style.display === "none") {
         x.style.display = "block";
-    } else {
+      } else {
         x.style.display = "none";
+      }
     }
-}
 
     function scrollToDownload() {
       if ($('.section-download').length != 0) {
